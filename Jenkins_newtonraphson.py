@@ -1,6 +1,7 @@
 
 
 # Python code for implementation of Newton Raphson method
+# Author: Frank Jenkins
 
 import matplotlib.pyplot as plt 
 
