@@ -1,13 +1,10 @@
 
-# coding: utf-8
-
-# In[1]:
-
-
 
 # Python code for implementation of Newton Raphson method
 
 import matplotlib.pyplot as plt 
+
+k = 0.0001 # the given tolerance level
 
 
 def func(x): 
@@ -16,24 +13,27 @@ def func(x):
 # Derivative of the above function  
 def derivFunc(x): 
     return 1.5*x**2 - 8*x + 5.5 
-h = []
 # Function to find the root 
 def newtonRaphson(x): 
     h = func(x) / derivFunc(x) 
-    while abs(h) >= 0.0001: 
+    while abs(h) >= k: 
         h = func(x)/derivFunc(x) 
           
         x = x - h 
       
-    print("The approximate value of the root is : ", 
-                             "%.4f"% x) 
+    return x
   
 x1 = 0.5 # Initial values assumed 
-newtonRaphson(x1) 
+print("The approximate value of the root is: ", newtonRaphson(x1))
 
 x2 = 1.0
-newtonRaphson(x2)
+print("The approximate value of the root is: ", newtonRaphson(x2))
 
 x3 = 6.0
-newtonRaphson(x3)
+print("The approximate value of the root is: ", newtonRaphson(x3))
+
+if(func(newtonRaphson(x1)) <= k and func(newtonRaphson(x2)) <= k and func(newtonRaphson(x3)) <= k):
+    print("All roots are within the given tolerance")
+else:
+    print("The roots are incorrect")
 
